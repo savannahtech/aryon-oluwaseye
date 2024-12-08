@@ -1,0 +1,26 @@
+{
+  "name": "aryon-test",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:auth": "concurrently \"npm run dev:server:auth\" \"npm run dev:client\"",
+    "dev:client": "cd frontend && wait-on tcp:3001 && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "dev:server:auth": "cd server && npm run dev:auth",
+    "build": "npm run build:server && npm run build:client",
+    "build:client": "cd frontend && npm run build",
+    "build:server": "cd server && npm run build",
+    "install:all": "npm install && cd frontend && npm install && cd ../server && npm install",
+    "test": "cd frontend && npm run test",
+    "test:cov": "cd frontend && npm run test:cov",
+    "test:ui": "cd frontend && npm run test:ui"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "concurrently": "^9.1.0",
+    "wait-on": "^8.0.1"
+  }
+}
